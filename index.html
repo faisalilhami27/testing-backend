@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  let number = parseInt(prompt('Masukan angka:'));
+  let result = '';
+  
+  for (let i = 0; i < number; i++) {
+    result += '\n';
+    for (let j = 0; j < (number - 1); j++) {
+      if (i % 2 === 0) {
+        if (j === 1) {
+          result += (i % 4 !== 2) ? ' ' : '@ ';
+        } else if (j === (number - 2)) {
+          result += (i % 4 !== 2) ? '@ ' : ' ';
+        } else {
+          result += '@ ';
+        }
+      } else {
+        if (j === 0) {
+          result += '@';
+        } else {
+          result += '  ';
+        }
+      }
+
+      if (j === number - 2) {
+        result += '@';
+      }
+    }
+  }
+  
+  console.log(result);
+</script>
+</body>
+</html>

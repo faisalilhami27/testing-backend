@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="result"></div>
+<script>
+  let row = parseInt(prompt('Masukan angka:'));
+  let column = row;
+  let display = null;
+  let result = '';
+  let maze = [];
+  let i, j;
+
+  for (i = 0; i < row; i++) {
+    maze.push(i);
+    display = (maze[i][0] = "@");
+    result += display;
+
+    if (i % 2 !== 1) {
+      const condition = (i % 4 !== 2) ? " " : "@";
+      display = (maze[i][1] = condition);
+      result += display;
+
+      for (j = 2; j < column - 2; j++) {
+        display = (maze[i][j] = "@");
+        result += display;
+      }
+
+      const condition1 = (i % 4 !== 2) ? "@" : " ";
+      display = (maze[i][j - 2] = condition1);
+      result += display;
+    } else {
+      for (j = 1; j < column - 1; j++) {
+        display = (maze[i][j] = " ");
+        result += display;
+      }
+    }
+
+    display = (maze[i][j - 1] = "@");
+    result += display;
+    result += '\n';
+  }
+
+  console.log(result);
+</script>
+</body>
+</html>
